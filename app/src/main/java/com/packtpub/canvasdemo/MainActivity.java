@@ -2,6 +2,7 @@ package com.packtpub.canvasdemo;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,5 +22,19 @@ public class MainActivity extends AppCompatActivity {
         Canvas ourCanvas = new Canvas(ourBitmap);
         //A paint object that does our drawing, on our canvas
         Paint paint = new Paint();
+
+        //Set the background color
+        ourCanvas.drawColor(Color.BLACK);
+        //Change the color of the virtual paint brush
+        paint.setColor(Color.argb(255, 255, 255, 255));
+
+        //Now draw a load of stuff on our canvas
+        ourCanvas.drawText("Score: 42 Lives: 3 Hi: 97", 10, 10, paint);
+        ourCanvas.drawLine(10, 50, 200, 50, paint);
+        ourCanvas.drawCircle(110, 160, 100, paint);
+        ourCanvas.drawPoint(10, 260, paint);
+
+        //Now put the canvas in the frame
+        ourFrame.setImageBitmap(ourBitmap);
     }
 }
